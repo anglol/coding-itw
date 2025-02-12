@@ -26,6 +26,7 @@ Sorting and pairing the values:
 - 3 vs 4 → difference = 1
 - 3 vs 5 → difference = 2
 - 4 vs 9 → difference = 5
+
 Total variance: 2 + 1 + 0 + 1 + 2 + 5 = 11
 
 Your [actual reports](https://github.com/anglol/coding-itw/blob/main/dataset.txt) contain many more fund valuations. Can you determine the total variance and help the team wrap up the reconciliation process?

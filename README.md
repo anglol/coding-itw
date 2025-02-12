@@ -1,24 +1,15 @@
 # The Missing CFO and the Mismatched Fund Valuations
 
-Your company’s **Chief Financial Officer (CFO)** has mysteriously disappeared just days before the annual investment fund performance review! The last anyone heard, they were investigating **discrepancies in fund valuations** across different sources—your company’s internal system and the official custodian bank records.
+It’s year-end, and everything is running smoothly—except for one thing. Your CFO is on a well-deserved surprise getaway to the Bahamas, leaving the finance team to finalize the fund valuations before the reporting deadline! 🌴🏖️
 
-Concerned about the potential financial impact, the **Operations team** has asked for your help in reconciling the numbers. They believe the CFO was onto something important, and by uncovering the valuation discrepancies, you might find clues about their last steps.
+Two key reports—the internal ledger and the third-party audit—need to be aligned before they are finalized. Both lists contain fund valuations based on unique identifiers, but when the team compares them side by side, they notice some small differences. Since different sources can sometimes round or calculate values slightly differently, your job is to measure the total variation between the two lists and ensure everything is on track.
 
-The challenge? The two lists—one from your internal portfolio management system and another from the custodian bank—should **match perfectly**, but they don’t. Your task is to measure how far apart they are.
+To do this, you’ll match the smallest number in the internal report with the smallest in the audit report, the second-smallest with the second-smallest, and so on. Then, sum up the absolute differences between each pair to measure the total variance.
 
-### **How to reconcile the fund valuations**
-
-Each list contains **Net Asset Values (NAVs)** of multiple investment funds, but they are not ordered the same way. To ensure a fair comparison:
-
-1. **Sort both lists in ascending order.**
-2. **Pair each NAV from the internal system with the corresponding NAV from the custodian’s records (smallest with smallest, second smallest with second smallest, etc.).**
-3. **Calculate the absolute difference between each pair.**
-4. **Sum up all the differences.**
-
-For example, given the following NAV records:
+For example, if the two reports contain:
 
 ```tsx
-Internal System   Custodian Bank
+Internal System   Audit Report
 3.00              4.00
 4.00              3.00
 2.00              5.00
@@ -27,22 +18,14 @@ Internal System   Custodian Bank
 3.00              3.00
 ```
 
-Sorting both lists:
+Sorting and pairing the values:
 
-```tsx
-Internal System:  [1.00, 2.00, 3.00, 3.00, 3.00, 4.00]
-Custodian Bank:   [3.00, 3.00, 3.00, 4.00, 5.00, 9.00]
-```
+- 1 (internal) vs 3 (audit) → difference = 2
+- 2 vs 3 → difference = 1
+- 3 vs 3 → difference = 0
+- 3 vs 4 → difference = 1
+- 3 vs 5 → difference = 2
+- 4 vs 9 → difference = 5
+Total variance: 2 + 1 + 0 + 1 + 2 + 5 = 11
 
-Pairing them and calculating the discrepancies:
-
-- **1.00 vs 3.00** → Difference = **2.00**
-- **2.00 vs 3.00** → Difference = **1.00**
-- **3.00 vs 3.00** → Difference = **0.00**
-- **3.00 vs 4.00** → Difference = **1.00**
-- **3.00 vs 5.00** → Difference = **2.00**
-- **4.00 vs 9.00** → Difference = **5.00**
-
-Total discrepancy: **2.00 + 1.00 + 0.00 + 1.00 + 2.00 + 5.00 = 11.00**
-
-Your actual fund valuation lists contain **many more entries**, and this discrepancy could point to **significant financial risk**. Can you determine the total discrepancy? Solving this might **uncover the CFO’s last steps** and ensure the investment funds remain compliant before the big review! 🚀
+Your [actual reports](https://github.com/anglol/coding-itw/blob/main/dataset.txt) contain many more fund valuations. Can you determine the total variance and help the team wrap up the reconciliation process?
